@@ -31,6 +31,8 @@ int main(int argc,char **argv)
   const int dim_c=cimg_option("-c",1,  "image component or spectrum (i.e. size in c direction)");
   //show compilation options, such as debug, GUI, external library (e.g. FTTw), ...
   if(cimg_option("-I",false,"show compilation options")) cimg_library::cimg::info();
+  //get a file name from command line (or use default)
+  const std::string file_name=cimg_option("-o","image.tif","Output image");
   //exit if help requested
   if(help) return 0;
   //load image
@@ -47,6 +49,8 @@ int main(int argc,char **argv)
 #else
   image.display("image");
 #endif
+  //save image
+  image.save(file_name.c_str());
   return 0;
 }
 

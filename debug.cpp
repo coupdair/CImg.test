@@ -25,6 +25,8 @@ int main(int argc,char **argv)
   const std::string file_name=cimg_option("-i","image.png","Input image");
   //show compilation options, such as debug, GUI, external library (e.g. FTTw), ...
   if(cimg_option("-I",false,"show compilation options")) cimg_library::cimg::info();
+  //get a shift from command line (or use default)
+  const int shift=cimg_option("--shift",12,"shift out image boundary (e.g. 123456789).");
   //exit if help requested
   if(help) return 0;
   //load image
@@ -41,12 +43,11 @@ int main(int argc,char **argv)
       max=image(x,y,z,c);
       max_x=x;max_y=y;max_z=z;max_c=c;
     }
-  }
+  }//image loop
   std::cout<<"\rmaximum position=("<<max_x<<","<<max_y<<","<<max_z<<","<<max_c<<") with a value of "<<max<<"\n"<<std::flush;
   //loop outoff image with first maximum position search
   std::cout<<"scan for (first) maximum position, should go out off container bound\n  - if cimg_debug=0, might create a segmentation fault.\n  - if cimg_strict_warnings and cimg_verbosity=3, should output an error message and stop (i.e. exception).\n  - if cimg_verbosity=3, should output warning messages, but not stop.\n\n"<<std::flush;
   max=cimg::type<float>::min();
-const int shift=123;
   cimg_forXYZC(image,x,y,z,c) //cimg_forXYZV in version prior to CImg.v1.3.?
   {
     if(image(x+shift,y,z,c)>max)
@@ -54,7 +55,7 @@ const int shift=123;
       max=image(x+shift,y,z,c);
       max_x=x+shift;max_y=y;max_z=z;max_c=c;
     }
-  }
+  }//image loop
   std::cout<<"\rmaximum position=("<<max_x<<","<<max_y<<","<<max_z<<","<<max_c<<") with a value of "<<max<<"\n"<<std::flush;
   return 0;
 }
