@@ -18,7 +18,7 @@ using namespace cimg_library;
 int main(int argc,char **argv)
 {
   //Display program usage, when invoked from the command line with option '-h'.
-  cimg_usage("CImg debug define test program\n usage:\t./option -h -I\n\t./option -I -i ../CImg/examples/img/parrot_original.ppm");
+  cimg_usage("CImg debug define test program\n usage:\t./debug -h -I\n\t./debug -I -i ../CImg/examples/img/parrot_original.ppm");
   //get if help is requested
   const bool help=cimg_option("-h",false,"showing help only");
   //get a file name from command line (or use default)
