@@ -1,7 +1,7 @@
 //CImg debug define test
 //compilation: g++ -o debug debug.cpp -I../CImg -Wall -W -lm -ansi -pedantic -O0 -fno-tree-pre -Dcimg_use_vt100 -Dcimg_display=0 -Dcimg_verbosity=3 -Dcimg_strict_warnings #no GUI
 //               -I/usr/X11R6/include -Dcimg_use_xshm -Dcimg_use_xrandr -L/usr/X11R6/lib -lpthread -lX11 -lXext -lXrandr #GUI
-//shell loop for compilation: for w in ' ' -Dcimg_strict_warnings; do for v in 0 3; do g++ -o debug_cimg_verbosity$v'_w'$w debug.cpp -I../CImg -Wall -W -lm -ansi -pedantic -O0 -fno-tree-pre -Dcimg_use_vt100 -Dcimg_display=0 $w -Dcimg_verbosity=$v; done ; done; ls debug_cimg_*
+//shell loop for compilation: for w in yes no ; do if [ "$w" == "yes" ] ; then w=_cimg_strict_warnings; dw=-Dcimg_strict_warnings; else w=; dw=; fi; for v in 0 3; do g++ -o debug_cimg_verbosity$v$w debug.cpp -I../CImg -Wall -W -lm -ansi -pedantic -O0 -fno-tree-pre -Dcimg_use_vt100 -Dcimg_display=0 $dw -Dcimg_verbosity=$v; done ; done; ls debug_cimg_*
 //run line: ./debug -I -h
 //run line: ./debug -I -i ../CImg/examples/img/parrot_original.ppm
 
