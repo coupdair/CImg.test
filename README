@@ -7,3 +7,6 @@ The following files refers to the corresponding CImg functions:
 * debug: debug define tests (e.g. -Dcimg_verbosity3 -Dcimg_strict_warnings)
 * display: fill an image container and display it (i.e. CImg::display())
 
+TODO
+* Makefile
+
