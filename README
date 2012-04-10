@@ -1,0 +1,9 @@
+CImg.test
+small C++ code samples to test the CImg library (C++ template image processing toolkit).
+It could be used as a tutorial or draft developing branch.
+
+The following files refers to the corresponding CImg functions:
+* option: command line option (i.e. cimg_library::cimg_option(... )
+* debug: debug define tests (e.g. -Dcimg_verbosity3 -Dcimg_strict_warnings)
+* display: fill an image container and display it (i.e. CImg::display())
+
